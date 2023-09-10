@@ -17,3 +17,8 @@ a {
 .login img {
   height: 30px;
 }
+
+.avatar-img img {
+  border-radius: 50%;
+  height: 40px;
+}
