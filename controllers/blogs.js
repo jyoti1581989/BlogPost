@@ -3,7 +3,8 @@ const Blog = require('../models/blog')
 module.exports = {
     index,
     new: newBlog,
-    create
+    create,
+    show
 }
 
 async function index(req, res) {
@@ -28,4 +29,9 @@ async function create(req, res) {
         console.log(err)
         res.render('blogs/new', { errorMsg: err.message })
     }
+}
+
+async function show(req, res) {
+    const blog = await Blog.findById(req.params.id)
+    res.render('blogs/show', { title: blog.title, blog })
 }

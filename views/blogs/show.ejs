@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<section id="show-page">
+  <div id="show-content">
+    <%= blog.content %>
+  </div>
+</section id="comments">
+<h2>Comments</h2>
+<form id="add-comment-form" method="POST" action="/blogs/<%= blog._id %>/comments">
+  <label>Comment:</label>
+  <textarea name="content"></textarea>
+  <lable>Favorite:</lable>
+  <select name="isFavorite">
+    <potion value="Yes">Yes</potion>
+    <option value="No">No</option>
+  </select>
+  <input type="submit" value="Add Comment">
+</form>
+<%- include('../partials/footer') %>
