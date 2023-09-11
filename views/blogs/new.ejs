@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<form id="new-form" action="/blogs" method="POST">
+  <label>Title:</label>
+  <input type="text" name="title">
+
+  <textarea id="blogtext" name="content" rows="20">Write Blog here!</textarea>
+  <input type="submit" value="Add Blog">
+</form>
+
+
+
+<%- include('../partials/footer') %>
