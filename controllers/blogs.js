@@ -6,7 +6,9 @@ module.exports = {
     create,
     show,
     myBlogs,
-    edit: editBlog
+    edit: editBlog,
+    update: updateBlog,
+    delete: deleteBlog
 }
 
 async function index(req, res) {
@@ -50,4 +52,24 @@ async function editBlog(req, res) {
         title: "Edit Blog",
         blog
     })
+}
+
+async function updateBlog(req, res) {
+    try {
+        const updatedBlog = await Blog.findOneAndUpdate({ '_id': req.params.id },
+            // update object with updates properties    
+            req.body,
+            // options object {new: true} return update doc
+            { new: true })
+        res.redirect(`/blogs/${updateBlog._id}`)
+    } catch (e) {
+        console.log(e.message)
+        res.redirect('/blogs')
+    }
+
+}
+async function deleteBlog(req, res) {
+    await Blog.findOneAndDelete({ '_id': req.params.id })
+    res.redirect('/blogs')
+
 }

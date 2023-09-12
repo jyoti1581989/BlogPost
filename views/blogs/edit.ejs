@@ -6,4 +6,9 @@
   <textarea id="blogtext" name="content" rows="20"><%= blog.content %></textarea>
   <button type="submit">UPDATE</button>
 </form>
+
+<form id="delete-form" action="/blogs/<%=blog.id %>?_method=DELETE" method="POST">
+  <button type="submit">DELETE</button>
+</form>
+
 <%- include('../partials/footer') %>
