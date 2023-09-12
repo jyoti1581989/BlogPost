@@ -4,7 +4,9 @@ module.exports = {
     index,
     new: newBlog,
     create,
-    show
+    show,
+    myBlogs,
+    edit: editBlog
 }
 
 async function index(req, res) {
@@ -34,4 +36,18 @@ async function create(req, res) {
 async function show(req, res) {
     const blog = await Blog.findById(req.params.id)
     res.render('blogs/show', { title: blog.title, blog })
+}
+
+async function myBlogs(req, res) {
+    const blogs = await Blog.find({ userId: req.user._id })
+    res.render('myblogs/index', { title: 'My Blog', blogs })
+
+}
+
+async function editBlog(req, res) {
+    const blog = await Blog.findById(req.params.id)
+    res.render('blogs/edit', {
+        title: "Edit Blog",
+        blog
+    })
 }

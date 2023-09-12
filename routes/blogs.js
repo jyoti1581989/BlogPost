@@ -13,5 +13,7 @@ router.get('/new', ensureLoggedIn, blogsCtrl.new)
 router.post('/', ensureLoggedIn, blogsCtrl.create)
 //POST /blogs
 router.get('/:id', blogsCtrl.show)
+//GET /blogs/:id/edit
+router.get('/:id/edit', blogsCtrl.edit)
 
 module.exports = router

@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<table id="list">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% blogs.forEach(function(b){ %>
+    <tr>
+      <td><%= b.title %></td>
+      <td><a href="/blogs/<%= b._id %>">READ</a></td>
+      <td><a href="/blogs/<%= b._id %>/edit">EDIT</a></td>
+    </tr>
+    <% }); %>
+  </tbody>
+
+
+  <%- include('../partials/footer') %>
