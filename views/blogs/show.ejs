@@ -4,16 +4,61 @@
   <div id="show-content">
     <%= blog.content %>
   </div>
-</section id="comments">
-<h2>Comments</h2>
-<form id="add-comment-form" method="POST" action="/blogs/<%= blog._id %>/comments">
-  <label>Comment:</label>
-  <textarea name="content"></textarea>
-  <lable>Favorite:</lable>
-  <select name="isFavorite">
-    <potion value="Yes">Yes</potion>
-    <option value="No">No</option>
-  </select>
-  <input type="submit" value="Add Comment">
-</form>
+  <% if(user){ %>
+  <section id="comments">
+    <h2>Comments</h2>
+    <form id="add-comment-form" method="POST" action="/blogs/<%= blog._id %>/comments">
+      <label>Comment:</label>
+      <textarea name="content"></textarea>
+      <label>Favorite:</label>
+      <select name="isFavorite">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <input type="submit" value="Add Comment">
+    </form>
+    <% if(blog.comments.length){ %>
+    <table id="comment-table">
+      <thead>
+        <tr>
+          <th>Comment</th>
+          <th>User</th>
+          <th>Date</th>
+          <th>Post Favorited</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% blog.comments.forEach(function(c) { %>
+        <tr>
+          <td>
+            <div id="comment-content"><%= c.content %></div>
+          </td>
+          <td class="avatar-img"><img alt="avatar" src="<%= c.userAvatar %>" referrerpolicy="no-referrer">
+            <%= c.userName %>
+          </td>
+          <td>
+            <%= c.createdAt.toLocaleDateString() %>
+          </td>
+
+          <td>
+            <%= c.isFavorite ? "Yes" : "No" %>
+          </td>
+          <td>
+            <% if (user?._id.equals(c.user)) { %>
+            <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+            </form>
+            <% } %>
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Comments Yet</h5>
+    <% } %>
+  </section>
+  <% } %>
+</section>
 <%- include('../partials/footer') %>

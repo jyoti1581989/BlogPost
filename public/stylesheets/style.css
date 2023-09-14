@@ -1,10 +1,162 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  background-color: #DEBA90;
+  grid-template-areas:
+    "nav"
+    "main"
+}
+
+body>nav {
+  grid-area: nav;
+
+  background-color: #f1f2f9;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 20px 0 30px;
+}
+
+body>main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+nav>a {
+  margin: 20px;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 a {
-  color: #00B7FF;
+  color: #000203;
+}
+
+#show-content {
+  height: 40vh;
+  width: 80vh;
+}
+
+#comment-content {
+
+  border-radius: 5px;
+  width: 40vh;
+  height: 10vh;
+  overflow-y: scroll;
+  text-align: left;
+  color: black;
+}
+
+#blogtext,
+#show-content {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #C8A175;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+#comments {
+  width: 80vh;
+  color: #fff;
+}
+
+#delete-form button {
+  color: red;
+}
+
+#new-form *,
+#delete-form *,
+#add-comment-form * {
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#new-form label {
+  color: white;
+}
+
+#new-form,
+#delete-form {
+  display: flex;
+  flex-direction: column;
+  width: 80vh;
+  align-self: center;
+}
+
+#comment-table {
+  background-color: #C8A175;
+  border-radius: 5px;
+  overflow-y: scroll;
+  color: black;
+}
+
+#list {
+  font-size: 20px;
+  overflow-y: scroll;
+  background-color: #C8A175;
+  border-radius: 5px;
+}
+
+table thead th {
+  padding: 5px;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+#list table td {
+  font-size: 25px;
+}
+
+#list td:nth-child(2),
+#list td:nth-child(3) {
+  min-width: 100px;
+}
+
+
+#list a {
+
+  border-radius: 4px;
+  background-color: #eef2f3;
+  padding: 4px;
+  text-decoration: none;
+  font-size: 20px;
+
+}
+
+#list a:hover {
+  background: #1b1b1b;
+  color: #fff;
+
+}
+
+#add-comment-form {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 1rem;
+  margin-bottom: 2rem;
+
+}
+
+#add-comment-from input[type="submit"] {
+  width: 10rem;
+  grid-column: 2 / 3;
+  justify-self: right;
+
 }
 
 .login {
@@ -21,4 +173,23 @@ a {
 .avatar-img img {
   border-radius: 50%;
   height: 40px;
+}
+
+.heading {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 80px;
+  line-height: 60px;
+  margin-bottom: 80px;
+}
+
+.heading .small {
+  display: block;
+  font-size: 40px;
+}
+
+.heading .no-fill {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 2px #fff;
 }

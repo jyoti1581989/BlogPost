@@ -56,12 +56,12 @@ async function editBlog(req, res) {
 
 async function updateBlog(req, res) {
     try {
-        const updatedBlog = await Blog.findOneAndUpdate({ '_id': req.params.id },
+        const updatedBlog = await Blog.findOneAndUpdate({ '_id': req.params.id, 'userId': req.user._id },
             // update object with updates properties    
             req.body,
             // options object {new: true} return update doc
             { new: true })
-        res.redirect(`/blogs/${updateBlog._id}`)
+        res.redirect(`/blogs/${updatedBlog._id}`)
     } catch (e) {
         console.log(e.message)
         res.redirect('/blogs')
@@ -69,7 +69,7 @@ async function updateBlog(req, res) {
 
 }
 async function deleteBlog(req, res) {
-    await Blog.findOneAndDelete({ '_id': req.params.id })
+    await Blog.findOneAndDelete({ '_id': req.params.id, 'userId': req.user._id })
     res.redirect('/blogs')
 
 }
