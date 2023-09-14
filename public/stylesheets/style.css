@@ -122,6 +122,7 @@ table td {
 
 #list table td {
   font-size: 25px;
+  text-align: left;
 }
 
 #list td:nth-child(2),
