@@ -8,24 +8,21 @@
   <link rel='stylesheet' href='/stylesheets/style.css' />
 
   <title>BlogPost</title>
+  <link rel="shortcut icon" type="image/png" href="/images/favicon.png">
 </head>
 
 <body background="/images/background-sept.jpg">
   <nav>
-
-
     <a href="/blogs" <%- title === 'All Blogs' ? 'class="active"' : '' %>>ALL BLOGS</a>
     <% if (user) { %>
     <a href="/myblogs" <%- title === 'My Blogs' ? 'class="active"' : '' %>>MY BLOGS</a>
     <a href="/blogs/new" <%- title === 'Add Blog' ? 'class="active"' : '' %>>WRITE BLOG</a>
-
     &nbsp;<%= user.name %>&nbsp;
     <span class="avatar-img"><img alt="avatar" src="<%= user.avatar %>" referrerpolicy="no-referrer"></span>
     <a href="/logout">LOG OUT</a>
     <% } else { %>
     <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>
-
   </nav>
   <main>
     <h1 class="heading"><%= title %></h1>

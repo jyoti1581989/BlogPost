@@ -43,7 +43,6 @@ async function show(req, res) {
 async function myBlogs(req, res) {
     const blogs = await Blog.find({ userId: req.user._id })
     res.render('myblogs/index', { title: 'My Blog', blogs })
-
 }
 
 async function editBlog(req, res) {
@@ -66,10 +65,9 @@ async function updateBlog(req, res) {
         console.log(e.message)
         res.redirect('/blogs')
     }
-
 }
+
 async function deleteBlog(req, res) {
     await Blog.findOneAndDelete({ '_id': req.params.id, 'userId': req.user._id })
     res.redirect('/blogs')
-
 }

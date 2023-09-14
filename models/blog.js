@@ -23,7 +23,7 @@ const commentSchema = new Schema({
     timestamps: true
 })
 
-
+// Blog Schema
 const blogSchema = new Schema({
     title: { type: String, required: true },
     content: {
@@ -34,7 +34,6 @@ const blogSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
         required: true
-
     },
     comments: [commentSchema]
 }, {
