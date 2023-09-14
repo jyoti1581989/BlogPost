@@ -3,7 +3,7 @@ body {
   margin: 0;
   display: grid;
   grid-template-rows: 50px 1fr;
-  background-repeat: no-repeat;
+
   background-size: 100vw 100vh;
   background-color: #DEBA90;
   grid-template-areas:
