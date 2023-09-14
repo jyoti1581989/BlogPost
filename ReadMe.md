@@ -7,6 +7,7 @@
   ##### Jyoti vaishnav
 
   ## :pencil: Description
+ <img src="public/images/pexels.png" style="width: 200px"> 
 
  An web application to pour creative thoughts into a blog post and get comments and reactions from other user.
 
