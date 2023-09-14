@@ -6,14 +6,13 @@
   ##### By
   ##### Jyoti vaishnav
 
-  
-  ## Description
+  ## :pencil: Description
 
  An web application to pour creative thoughts into a blog post and get comments and reactions from other user.
 
   </div>
 
- # Screenshort
+ # :camera_flash: Screenshort
 | Description | Screenshot | 
   |:-----------:|:----------:| 
   | <h3> **Welcome page** </h3> | <img src="public/images/screenshot1.png"> |
@@ -36,14 +35,13 @@
 
 
 
-# Getting Started
-[Click to Open BlogPost]
-(https://blog-post-15-c6aa3ccb77d6.herokuapp.com/)
+## :fire: Getting Started
 
-[Trello board]
-(https://trello.com/b/rTziQgEy/project-2)
+[Click to Open BlogPost](https://blog-post-15-c6aa3ccb77d6.herokuapp.com/)
 
-##  Upcoming Features
+[Trello board](https://trello.com/b/rTziQgEy/project-2)
+
+## :satellite: Upcoming Features
 
 - More responsive UI using css framework.
 
